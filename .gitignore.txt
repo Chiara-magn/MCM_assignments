@@ -1,0 +1,14 @@
+# File MATLAB da ignorare
+*.asv           # AutoSave files
+*.m~            # Backup temporanei
+*.fig           # File di figure (se non necessari)
+*.mat           # File di dati (se generati automaticamente)
+*.log           # File di log
+
+# File di sistema
+.DS_Store       # macOS
+Thumbs.db       # Windows
+desktop.ini     # Windows
+
+# Cartelle da ignorare
+__MACOSX/
