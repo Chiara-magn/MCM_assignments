@@ -11,5 +11,4 @@ h_skew = [0 -h(3) h(2); h(3) 0 -h(1); -h(2) h(1) 0];
 
 R = I + sin(theta)*h_skew + (1-cos(theta))*(h_skew^2);
 
-
 end

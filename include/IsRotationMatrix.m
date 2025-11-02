@@ -22,4 +22,5 @@ function [isRotationMatrix] = IsRotationMatrix(R)
     else
         error('failed check, Matrix is not 3x3')
     end
+    
 end

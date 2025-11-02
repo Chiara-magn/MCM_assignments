@@ -24,6 +24,7 @@ disp(R);
 % 1.2 Rot to angle-axis
 
 
+
 % 1.3 Euler to rot
 
 % 1.4 Rot to Euler

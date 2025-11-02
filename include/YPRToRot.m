@@ -8,4 +8,17 @@ function [R] = YPRToRot(psi, theta, phi)
 % Output:
 % R rotation matrix
 
+    Rz = [cos(psi) -sin(psi) 0; sin(psi) cos(psi) 0; 0 0 1];
+    Ry = [cos(theta) 0 sin(theta); 0 1 0; -sin(theta) 0 cos(theta)];
+    Rx = [1 0 0; 0 cos(phi) -sin(phi); 0 sin(phi) cos(phi)];
+     
+    % Multiply the rotation matrices in the ZYX order
+    R = Rz * Ry * Rx;
+     
+    if (IsRotationMatrix(R) == true)
+        disp('R correctly generated')
+        disp(R);
+    end
+
 end
+
