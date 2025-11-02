@@ -8,33 +8,51 @@ I = eye(3, 3);
 h = [0 0 0];
 theta = 0;
 tr = 0;
+tolerance = 1e-3; 
 
 % Check if matrix R is valid
 if IsRotationMatrix(R) == true 
     if isequal(R, I)
         theta = 0; % va aggiunto h ma è arbitrario quindi non so come fare
-        h = [1 0 0];%per ora ho messo cosi
+        h = [1 0 0];% per ora ho messo cosi
+        disp('Theta = 0, h can be arbitrary');
         return;
     end
-
     % trace of R
     for i = 1:r
         tr = tr + R(i,i);
     end
-    % theta
-    theta = acos((tr - 1)/2);
+    % theta  
+    theta = acos((tr - 1)/2); % could be done with theta = acos((sum(R .* I, "all") - 1) /2);
     % special case theta = pi
-    if theta == pi
-        for i = 1:3
-           h(i) = sqrt((R(i,i)+1)/2);
-        end
+    if (abs(theta - pi) < tolerance)  
+
+        h1 = sqrt((R(1,1) + 1)/2); % Verificare se è corretto usare sempre R(1,1)
+        h2 = sign_x(h1) * sign_x(R(1,2)) * sqrt((R(2,2) + 1)/2);
+        h3 = sign_x(h1) * sign_x(R(1,3)) * sqrt((R(3,3) + 1)/2);
+        
+        h = [h1, h2, h3];
+    else
+       a = vex((R - R')/2);
+       h = a / sin(theta);
     end
     return;
 else
-    disp ('Matrix inserted is not valid');
+    error('Matrix inserted is not valid');
 end
  
+
+% if the input is 0 the function returns 1 and not 0
+function sgn = sign_x(x)
+    if x == 0
+        sgn = 1;
+    else
+        sgn = sign(x);
+    end
+end
+
 function a = vex(S_a)
 % input: skew matrix S_a (3x3)
 % output: the original a vector (3x1)
+    a = [S_a(3, 2); S_a(1, 3); S_a(2, 1)];
 end
