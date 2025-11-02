@@ -20,7 +20,7 @@ function [isRotationMatrix] = IsRotationMatrix(R)
            return;
         end
     else
-        error('failed check, Matrix is not 3x3')
+        error('failed check, Matrix is not 3x3') % warning case
     end
     
 end

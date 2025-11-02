@@ -37,8 +37,8 @@ function [h,theta] = RotToAngleAxis(R)
             
             h = [h1, h2, h3];
         else
-         % generic case: theta ∈ [0,pi]
-           a = vex((R - R')/2); % a = axial vector
+           % generic case 
+           a = vex((R - R')/2);
            h = a / sin(theta);
         end
         return;
@@ -47,7 +47,7 @@ function [h,theta] = RotToAngleAxis(R)
     end
 end
 
-% if the input is 0 (no sign) the function returns 1 instead of 0
+% if the input is 0 the function returns 1 and not 0
 function sgn = sign_x(x)
     if x == 0
         sgn = 1;
