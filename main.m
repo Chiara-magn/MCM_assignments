@@ -32,16 +32,16 @@ addpath('include');
 % Case 4
 % R = [-1 0 0; 0 -1 0; 0 0 1]; 
 
-%[h,theta] = RotToAngleAxis(R);
-%disp(theta);
-%disp (h);
+% [h,theta] = RotToAngleAxis(R);
+% disp(theta);
+% disp (h);
 
 % 1.3 Euler to rot
 
 % Case 1
-%psi = 0;
-%theta = 0;
-%phi=pi / 2;
+% psi = 0;
+% theta = 0;
+% phi=pi / 2;
  
 % Case 2
 % psi = pi / 3;
@@ -81,23 +81,23 @@ addpath('include');
 % R = [1 0 0; 0 0 -1; 0 1 0];
 
 % Case 2
- R = 1/9*[4 -4 -7; 8 1 4; -1 -8 4];
+% R = 1/9*[4 -4 -7; 8 1 4; -1 -8 4];
 
 Exercise_5(R);
 
 function Exercise_5(R) 
 
-disp('First computation:')
+disp('First computation:');
 [h , theta] = RotToAngleAxis(R);
 disp('h1 :');
 disp(h);
 fprintf('theta = %.4f\n', theta);
 
-M = R - (1 * eye(3,3)); % to calculate the eigenvector associated with +1
-h_2 = null(M);
+% to calculate the eigenvector associated with +1
+[h_2, ~] = eigs(R, 1, 1); % the second and third arguments tell MATLAB to compute only one eigenvector, associated with the eigenvalue closest to 1.
 
 disp ("Second computation:");
-[h , theta] = RotToAngleAxis(R);
+[~ , theta] = RotToAngleAxis(R);
 disp('h2 :');
 disp(h_2);
 fprintf('theta = %.4f\n', theta);
