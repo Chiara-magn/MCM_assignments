@@ -1,0 +1,115 @@
+es 1
+caso 1.1
+>> main
+    1.0000         0         0
+         0    0.0000   -1.0000
+         0    1.0000    0.0000
+caso 1.2
+>> main
+    0.5000   -0.8660         0
+    0.8660    0.5000         0
+         0         0    1.0000
+caso1.3
+>> main
+    0.4444   -0.4444   -0.7778
+    0.8889    0.1111    0.4444
+   -0.1111   -0.8889    0.4444
+
+es 2
+
+2.1
+theta =     1.5708
+h' = [1 0 0]
+
+2.2
+theta =   1.0472
+h' = [0 0 1]
+
+2.3
+theta =   0
+h' = can be arbitrary [1 0 0]
+
+2.4
+theta = 3.1416
+h' = [0 0 1]
+
+es 3
+case 3.1
+R = 
+    1.0000         0         0
+         0    0.0000   -1.0000
+         0    1.0000    0.0000
+
+case 3.2
+R = 
+    0.5000   -0.8660         0
+    0.8660    0.5000         0
+         0         0    1.0000
+
+Controllare valori
+case 3.3
+R = 
+    0.0000   -0.2588    0.9659
+    0.0000    0.9659    0.2588
+   -1.0000    0.0000    0.0000
+
+
+case 3.4
+R = 
+    0.0000   -0.2588    0.9659
+         0    0.9659    0.2588
+   -1.0000   -0.0000    0.0000
+
+es 4
+4.1
+theta = 0
+phi =   1.5708
+psi = 0
+
+4.2
+theta = 0
+phi = 0
+psi =  1.0472
+
+4.3
+theta =     1.0472
+phi =    0.7854
+psi = 	1.5708
+
+es 5
+5.1
+First computation:
+R is a valid rotation matrix
+h1 :
+     1
+     0
+     0
+
+theta = 1.5708
+Second computation:
+R is a valid rotation matrix
+h2 :
+     1
+     0
+     0
+
+theta = 1.5708
+
+5.2
+First computation:
+R is a valid rotation matrix
+h1 :
+   -0.6667
+   -0.3333
+    0.6667
+
+theta = 1.5708
+Second computation:
+R is a valid rotation matrix
+h2 :
+    0.6667
+    0.3333
+   -0.6667
+
+theta = 1.5708
+
