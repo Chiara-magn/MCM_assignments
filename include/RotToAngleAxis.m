@@ -31,11 +31,20 @@ function [h,theta] = RotToAngleAxis(R)
         % special case theta = pi
         if (abs(theta - pi) < tolerance)
 
-            h1 = sqrt((R(1,1) + 1)/2); % Verificare se è corretto usare sempre R(1,1)
-            h2 = sign_x(h1) * sign_x(R(1,2)) * sqrt((R(2,2) + 1)/2);
-            h3 = sign_x(h1) * sign_x(R(1,3)) * sqrt((R(3,3) + 1)/2);
+            h_absolute = sqrt((diag(R) + 1) / 2); %calculates all the abs of diagonal elements with formula
+            i_select = find(h_absolute > 0, 1); %finds the correct i cross, with positive value
+
+            h(i_select) = h_absolute(i_select); % h(i_cross)
+
+            for j = setdiff (1:3, i_select) % selects the index of all the elements apart from i_select 
+            h(j) = sign_x(h(1)) * sign_x(R(i_select,j)) * sqrt((R(j,j) + 1)/2); %calculates the other two h elements
+            end
+
+          % h1 = sqrt((R(1,1) + 1)/2); % Verificare se è corretto usare sempre R(1,1)
+          % h2 = sign_x(h1) * sign_x(R(1,2)) * sqrt((R(2,2) + 1)/2);
+          % h3 = sign_x(h1) * sign_x(R(1,3)) * sqrt((R(3,3) + 1)/2);
             
-            h = [h1, h2, h3];
+         %   h = [h1, h2, h3]; % not needed in the second version 
         else
          % generic case: theta ∈ [0,pi]
            a = vex((R - R')/2); % a = axial vector

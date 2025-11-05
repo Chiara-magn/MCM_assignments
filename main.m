@@ -27,14 +27,14 @@ addpath('include');
 % R = [0.5 -sqrt(3)/2 0; sqrt(3)/2 0.5 0; 0 0 1];
  
 % Case 3
-% R = eye(3,3);
+ R = eye(3,3);
 
 % Case 4
 % R = [-1 0 0; 0 -1 0; 0 0 1]; 
 
-% [h,theta] = RotToAngleAxis(R);
-% disp(theta);
-% disp (h);
+ [h,theta] = RotToAngleAxis(R);
+ disp(theta);
+ disp (h);
 
 % 1.3 Euler to rot
 
@@ -83,7 +83,7 @@ addpath('include');
 % Case 2
 % R = 1/9*[4 -4 -7; 8 1 4; -1 -8 4];
 
-Exercise_5(R);
+% Exercise_5(R);
 
 function Exercise_5(R) 
 
