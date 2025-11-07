@@ -33,7 +33,7 @@ addpath('include');
 % R = [-1 0 0; 0 -1 0; 0 0 1]; 
 
 % Caso 5
- R = [-1 0 0; 0 1 0; 0 0 1];
+% R = [-1 0 0; 0 1 0; 0 0 1];
 
  [h,theta] = RotToAngleAxis(R);
  disp(theta);
@@ -86,7 +86,7 @@ addpath('include');
 % Case 2
 % R = 1/9*[4 -4 -7; 8 1 4; -1 -8 4];
 
-% Exercise_5(R);
+ Exercise_5(R);
 
 function Exercise_5(R) 
 
