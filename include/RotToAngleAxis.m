@@ -8,7 +8,7 @@ function [h,theta] = RotToAngleAxis(R)
     I = eye(3, 3);
     h = [0 0 0];
     theta = 0;
-    tr = 0;
+   % tr = 0;
     tolerance = 1e-3; 
     
     % Check if matrix R is valid
@@ -20,7 +20,8 @@ function [h,theta] = RotToAngleAxis(R)
             return;
         end
 
-        theta = acos((sum(R .* I, "all") - 1) /2); %trace is equal to sum(R .* I, "all")
+      % theta = acos((sum(R .* I, "all") - 1) /2); %trace is equal to sum(R .* I, "all")
+        theta = acos((trace(R) - 1) / 2);
 
         % theta could also be done with: 
            % for i = 1:r
@@ -37,7 +38,7 @@ function [h,theta] = RotToAngleAxis(R)
             h(i_select) = h_absolute(i_select); % h(i_cross)
 
             for j = setdiff (1:3, i_select) % selects the index of all the elements apart from i_select 
-            h(j) = sign_x(h(1)) * sign_x(R(i_select,j)) * sqrt((R(j,j) + 1)/2); %calculates the other two h elements
+                h(j) = sign_x(h(i_select))  * sign_x(R(i_select,j)) * sqrt((R(j,j) + 1)/2); %calculates the other two h elements
             end
 
           % h1 = sqrt((R(1,1) + 1)/2); % Verificare se è corretto usare sempre R(1,1)
