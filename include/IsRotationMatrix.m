@@ -10,7 +10,7 @@ function [isRotationMatrix] = IsRotationMatrix(R)
     tolerance = 1e-3; 
 
     if (r == c && r == 3)     
-        if ((det(R) - 1) < tolerance  && norm(Orth_matrix - I) < tolerance)
+        if (abs(det(R) - 1) < tolerance  && norm(Orth_matrix - I) < tolerance)
             isRotationMatrix = true;
             disp('R is a valid rotation matrix');
             return;
