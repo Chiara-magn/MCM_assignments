@@ -3,15 +3,15 @@ addpath('include');
 % TO DO: Test assignment 1 MCM 2024-2025
 % 1.1 Angle-axis to rot
 
-% case 1
+% case 1 (Q1.2)
 %h = [1 0 0]';
 %theta = pi/2;
 
-% case 2
+% case 2 (Q1.3)
 %h = [0 0 1]';
 %theta = pi/3;
 
-% case 3 
+% case 3 (Q1.4)
 %ro = [-pi/3 -pi/6 pi/3]; % ||h|| = 1 => ||ro|| = ||theta||*||h|| = theta
 %theta = sqrt(ro(1)^2 + ro(2)^2 + ro(3)^2);
 %h = ro/theta;
@@ -20,43 +20,44 @@ addpath('include');
 %disp(R);
 
 % 1.2 Rot to angle-axis
-% Case 1
+
+% Case 1 (Q2.2)
 % R = [1 0 0; 0 0 -1; 0 1 0];
  
-% Case 2
+% Case 2  (Q2.3)
 % R = [0.5 -sqrt(3)/2 0; sqrt(3)/2 0.5 0; 0 0 1];
  
-% Case 3
+% Case 3  (Q2.4)
 % R = eye(3,3);
 
-% Case 4
+% Case 4  (Q2.5)
 % R = [-1 0 0; 0 -1 0; 0 0 1]; 
 
-% Caso 5
+% Case 5  (Q2.6)
 % R = [-1 0 0; 0 1 0; 0 0 1];
 
- [h,theta] = RotToAngleAxis(R);
- disp(theta);
- disp (h);
+% [h,theta] = RotToAngleAxis(R);
+% disp(theta);
+% disp (h);
 
 % 1.3 Euler to rot
 
-% Case 1
+% Case 1 (Q3.2)
 % psi = 0;
 % theta = 0;
 % phi=pi / 2;
  
-% Case 2
+% Case 2 (Q3.3)
 % psi = pi / 3;
 % theta = 0;
 % phi= 0;
  
-% Case 3
+% Case 3 (Q3.4)
 % psi = pi / 3;
 % theta = pi / 2;
 % phi= pi / 4;
  
-% Case 4
+% Case 4 (Q3.5)
 % psi = 0;
 % theta = pi / 2;
 % phi= -pi / 12;
@@ -65,13 +66,13 @@ addpath('include');
  
 % 1.4 Rot to Euler
 
-% Case 1
+% Case 1 (Q4.2)
 % R = [1 0 0; 0 0 -1; 0 1 0];
  
-% Case 2
+% Case 2 (Q4.3)
 % R = [0.5 -sqrt(3)/2 0; sqrt(3)/2 0.5 0; 0 0 1];
  
-% Case 3
+% Case 3 (Q4.4)
 % R = [0 -sqrt(2)/2 sqrt(2)/2; 0.5 (sqrt(2)*sqrt(3))/4 (sqrt(2)*sqrt(3))/4; -sqrt(3)/2 sqrt(2)/4 sqrt(2)/4];
 
 % [psi,theta,phi] = RotToYPR(R);
@@ -80,13 +81,13 @@ addpath('include');
 
 % 1.5 Rot to angle-axis with eigenvectors
 
-% Case 1
-% R = [1 0 0; 0 0 -1; 0 1 0];
+% Case 1 (Q5.1)
+% R = [0 0 1; 1 0 0; 0 1 0];
 
-% Case 2
+% Case 2 (Q5.2)
 % R = 1/9*[4 -4 -7; 8 1 4; -1 -8 4];
 
- Exercise_5(R);
+% Exercise_5(R);
 
 function Exercise_5(R) 
 
@@ -97,7 +98,7 @@ disp(h);
 fprintf('theta = %.4f\n', theta);
 
 % to calculate the eigenvector associated with +1
-[h_2, ~] = eigs(R, 1, 1); % the second and third arguments tell MATLAB to compute only one eigenvector, associated with the eigenvalue closest to 1.
+[h_2, ~] = eigs(R, 1, 1); 
 
 disp ("Second computation:");
 [~ , theta] = RotToAngleAxis(R);

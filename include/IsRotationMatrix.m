@@ -6,7 +6,7 @@ function [isRotationMatrix] = IsRotationMatrix(R)
 
     [r, c] = size(R); % dimentions of R to verify that is squared
     I = eye(r, c);    
-    Orth_matrix = R' * R; %to verify if R is Orthogonal
+    Orth_matrix = R' * R; % to verify if R is Orthogonal
     tolerance = 1e-3; 
 
     if (r == c && r == 3)     

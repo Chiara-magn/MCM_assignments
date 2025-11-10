@@ -8,12 +8,11 @@ function [h,theta] = RotToAngleAxis(R)
     I = eye(3, 3);
     h = [0 0 0];
     theta = 0;
-   % tr = 0;
     tolerance = 1e-3; 
     
-    % Check if matrix R is valid
+    % Check if matrix R is a valid rotation matrix
     if IsRotationMatrix(R) == true 
-        if isequal(R, I) % check if R is Identity matrix
+        if isequal(R, I) % check if R is equal to the Identity matrix
             theta = 0;
             h = [1 0 0];
             disp('Theta = 0, h can be arbitrary');
@@ -26,7 +25,7 @@ function [h,theta] = RotToAngleAxis(R)
         if (abs(theta - pi) < tolerance)
 
             h_absolute = sqrt((diag(R) + 1) / 2); %calculates all the abs of diagonal elements with formula
-            i_select = find(h_absolute > 0, 1); %finds the correct i cross, with positive value
+            i_select = find(h_absolute > 0, 1); %finds the correct i dagger, with positive value
 
             h(i_select) = h_absolute(i_select); % h(i_dagger)
 
